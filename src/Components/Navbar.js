@@ -1,11 +1,11 @@
 import React from "react"
 import { Button, Navbar, Nav, Container } from "react-bootstrap";
 
-const NavbarComponent = () =>{
+const NavbarComponent = (props) =>{
     return (
         <Navbar expand="lg" bg="dark" variant="dark" className="p-2">
         <Container>
-          <Navbar.Brand href="#home" style={{fontSize: '2.1rem'}}>
+          <Navbar.Brand href="#home" style={{fontSize: '2.1rem',fontFamily: 'Georgia'}}>
             SHOP-IN
           </Navbar.Brand>
           <Nav>
@@ -17,6 +17,7 @@ const NavbarComponent = () =>{
             variant="outline-light"
             className="m-1 flex-shrink-0 "
             style={{ width: "100px" }}
+            onClick={props.onshowmodal}
           >
             Cart
           </Button>
