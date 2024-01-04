@@ -58,10 +58,10 @@ const Cart = (props) => {
             <Col lg={6} md="6" xl="6">
               Product
             </Col>
-            <Col lg={3} md="3" xl="3">
+            <Col lg={2} md="2" xl="2">
               Price
             </Col>
-            <Col lg={3} md="3" xl="3">
+            <Col lg={4} md="4" xl="4">
               Quantity
             </Col>
           </Row>
@@ -81,10 +81,10 @@ const Cart = (props) => {
                   />
                   <span>{item.title}</span>
                 </Col>
-                <Col lg="3" md="3" xl="3" style={{display:'flex',alignItems:'center'}}>
+                <Col lg="2" md="2" xl="2" style={{display:'flex',alignItems:'center'}}>
                   {item.price}
                 </Col>
-                <Col lg="3" md="3" xl="3">
+                <Col lg="4" md="4" xl="4">
                   {item.Amount}
 
                   <Button

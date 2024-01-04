@@ -23,17 +23,17 @@ const NavbarComponent = (props) => {
           >
             Home
           </Nav.Link>
-          <Nav.Link style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
+          <Nav.Link href="/store" style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
             Store
           </Nav.Link>
-          <Nav.Link style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
+          <Nav.Link href="/about" style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
             About
           </Nav.Link>
         </Nav>
         <Button
           variant="outline-light"
           className="m-1 flex-shrink-0 "
-          style={{ width: "100px" }}
+          style={{ width: "120px" }}
           onClick={props.onshowmodal}
         >
           Cart
