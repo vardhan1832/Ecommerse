@@ -5,9 +5,11 @@ import Products from "./Components/Store";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./Store/CartProvider";
 import About from "./Components/About";
+import Home from "./Components/Home";
 
 const router = createBrowserRouter([
-  {path:'/',element:<Products/>},
+  {path:'/',element:<Home/>},
+  {path:'/store',element:<Products/>},
   {path:'/about',element:<About/>}
 ])
 
