@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import NavbarComponent from "./Components/Navbar";
 import Products from "./Components/Store";
 import Cart from "./Components/Cart/Cart";
+import CartProvider from "./Store/CartProvider";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -9,9 +10,9 @@ function App() {
     setModalShow(true)
   }
   return (
-    <React.Fragment>
+      <CartProvider>
         <NavbarComponent onshowmodal={modalHandler}/>
-        <div style={{padding: '2rem',margin: '1rem 0rem', backgroundColor: '#8d948e'}}>
+        <div style={{padding: '2rem',margin: '5rem 0rem 2rem 0rem', backgroundColor: '#8d948e'}}>
           <p style={{fontSize:'4rem',textAlign: "center",fontFamily: 'Georgia'}}>The Classics </p>
         </div>
         <Products/>
@@ -19,7 +20,7 @@ function App() {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-    </React.Fragment>
+      </CartProvider>
   );
 }
 

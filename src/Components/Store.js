@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Row, Card, Button, Col, Container } from "react-bootstrap";
+import CartContext from "../Store/cartcontext";
 
 const productsArr = [
   {
+    id:'1',
     title: "Colors",
 
     price: 100,
@@ -11,6 +13,7 @@ const productsArr = [
   },
 
   {
+    id:'2',
     title: "Black and white Colors",
 
     price: 50,
@@ -19,6 +22,7 @@ const productsArr = [
   },
 
   {
+    id:'3',
     title: "Yellow and Black Colors",
 
     price: 70,
@@ -27,6 +31,7 @@ const productsArr = [
   },
 
   {
+    id:'4',
     title: "Blue Color",
 
     price: 100,
@@ -36,8 +41,9 @@ const productsArr = [
 ];
 
 const Products = () => {
+  const cartctx = useContext(CartContext)
   return (
-    <Container style={{justifyContent: 'space-around', margin: '4rem 15rem'}}>
+    <Container style={{justifyContent: 'space-around', margin: '3rem 15rem'}}>
       <Row xs={1} md={2} lg={2} className="g-4 justify-content-around">
         {productsArr.map((item) => {
           return (
@@ -47,7 +53,7 @@ const Products = () => {
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>${item.price}</Card.Text>
-                  <Button variant="primary">Add to Cart</Button>
+                  <Button variant="primary" onClick={()=>cartctx.addToCart({...item,Amount:1})}>Add to Cart</Button>
                 </Card.Body>
               </Card>
             </Col>
