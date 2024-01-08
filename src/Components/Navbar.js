@@ -1,14 +1,28 @@
-import React, {useContext} from "react";
-import { Button, Navbar, Nav, Container , Badge} from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Navbar, Nav, Container, Badge } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import CartContext from "../Store/cartcontext";
 
 const NavbarComponent = (props) => {
-  const cartctx = useContext(CartContext)
-  const noOfCartItems = cartctx.items.reduce((curr,ele)=>{
-    return curr + ele.Amount
-  },0)
+  const cartctx = useContext(CartContext);
+  const noOfCartItems = cartctx.items.reduce((curr, ele) => {
+    return curr + ele.Amount;
+  }, 0);
+
   return (
-    <Navbar expand="lg" bg="dark" variant="dark" className="p-2" style={{position:'fixed',width: '100%',zIndex:'10',top:'0',left:'0'}}>
+    <Navbar
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="p-2"
+      style={{
+        position: "fixed",
+        width: "100%",
+        zIndex: "10",
+        top: "0",
+        left: "0",
+      }}
+    >
       <Container>
         <Navbar.Brand
           href="#home"
@@ -18,16 +32,61 @@ const NavbarComponent = (props) => {
         </Navbar.Brand>
         <Nav>
           <Nav.Link
-            href="/"
-            style={{ marginRight: "3rem", fontSize: "1.5rem" }}
+            as={NavLink}
+            exact
+            to="/"
+            style={{
+              marginRight: "3rem",
+              fontSize: "1.5rem",
+              color: "#a2a6a3", // Default color for links
+            }}
+            activeStyle={{
+              color: "white", // Change this to your preferred highlighted color
+            }}
           >
             Home
           </Nav.Link>
-          <Nav.Link href="/store" style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
+          <Nav.Link
+            as={NavLink}
+            to="/store"
+            style={{
+              marginRight: "3rem",
+              fontSize: "1.5rem",
+              color: "#a2a6a3", // Default color for links
+            }}
+            activeStyle={{
+              color: 'white', // Change this to your preferred highlighted color
+            }}
+          >
             Store
           </Nav.Link>
-          <Nav.Link href="/about" style={{ marginRight: "3rem", fontSize: "1.5rem" }}>
+          <Nav.Link
+            as={NavLink}
+            to="/about"
+            style={{
+              marginRight: "3rem",
+              fontSize: "1.5rem",
+              color: "#a2a6a3", // Default color for links
+            }}
+            activeStyle={{
+              color: "white", // Change this to your preferred highlighted color
+            }}
+          >
             About
+          </Nav.Link>
+          <Nav.Link
+            as={NavLink}
+            to="/contact"
+            style={{
+              marginRight: "3rem",
+              fontSize: "1.5rem",
+              color: "#a2a6a3", // Default color for links
+            }}
+            activeStyle={{
+              color: "white", // Change this to your preferred highlighted color
+            }}
+          >
+            Contact Us
           </Nav.Link>
         </Nav>
         <Button
@@ -37,7 +96,9 @@ const NavbarComponent = (props) => {
           onClick={props.onshowmodal}
         >
           Cart
-          <Badge bg="primary" style={{marginLeft: '1rem'}}>{noOfCartItems}</Badge>
+          <Badge bg="primary" style={{ marginLeft: "1rem" }}>
+            {noOfCartItems}
+          </Badge>
         </Button>
       </Container>
     </Navbar>
