@@ -4,6 +4,23 @@ import { Container, Image, Row, Col } from "react-bootstrap";
 const About = () => {
   return (
     <div>
+       <div
+        style={{
+          padding: "1.45rem",
+          margin: "5rem 0rem 0rem 0rem",
+          backgroundColor: "#8d948e",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "3.4rem",
+            textAlign: "center",
+            fontFamily: "Georgia",
+          }}
+        >
+          The Classics{" "}
+        </p>
+      </div>
       <h1 className="text-center mb-4 mt-1" style={{fontFamily: 'Georgia'}}>About</h1>
       <Container>
         <Row lg="2">
