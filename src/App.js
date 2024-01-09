@@ -28,8 +28,14 @@ function App() {
         <NavbarComponent onshowmodal={modalHandler}/>
         <Switch>
         <Route path='/' exact><Home/></Route>
-        {authctx.isLoggedIn && <Route path='/store' exact><Products/></Route>}
-        {authctx.isLoggedIn && <Route path="/store/:productId"><ProductDetails/></Route>}
+        <Route path='/store' exact>
+          {authctx.isLoggedIn && <Products/>}
+          {!authctx.isLoggedIn && <Redirect to='/login'/>}
+        </Route>
+        <Route path="/store/:productId">
+          {authctx.isLoggedIn && <ProductDetails/>}
+          {!authctx.isLoggedIn && <Redirect to='/login'/>}
+          </Route>
         <Route path='/about'><About/></Route>
         <Route path='/contact'><ContactUs/></Route>
         {!authctx.isLoggedIn && <Route path='/login'><Login/></Route>} 

@@ -57,11 +57,12 @@ const Login = () => {
       </div>
       <Container
         style={{
-          backgroundColor: "#87847b",
+          backgroundColor: "rgba(185, 250, 240,0.5)",
           margin: "2rem auto",
           borderRadius: "5px",
-          width: "450px",
-          padding: "2rem",
+          width: "500px",
+          padding: "3rem",
+          boxShadow:'0px 4px 12px rgba(0,0,0,0.5)'
         }}
       >
         <Form onSubmit={submitHandler}>
