@@ -2,38 +2,6 @@ import React, { useContext } from "react";
 import { Modal, Row, Col, Button } from "react-bootstrap";
 import CartContext from "../../Store/cartcontext";
 
-// const cartElements = [
-//   {
-//     title: "Colors",
-
-//     price: 100,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-//     Amount: 2,
-//   },
-
-//   {
-//     title: "Black and white Colors",
-
-//     price: 50,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-//     Amount: 3,
-//   },
-
-//   {
-//     title: "Yellow and Black Colors",
-
-//     price: 70,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-//     Amount: 1,
-//   },
-// ];
-
 const Cart = (props) => {
   const cartctx = useContext(CartContext);
   return (

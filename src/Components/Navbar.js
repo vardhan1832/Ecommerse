@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Button, Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import CartContext from "../Store/cartcontext";
+import { AuthContext } from "../Store/authcontext";
 
 const NavbarComponent = (props) => {
   const cartctx = useContext(CartContext);
+  const authctx = useContext(AuthContext)
   const noOfCartItems = cartctx.items.reduce((curr, ele) => {
     return curr + ele.Amount;
   }, 0);
@@ -46,7 +48,7 @@ const NavbarComponent = (props) => {
           >
             Home
           </Nav.Link>
-          <Nav.Link
+          {authctx.isLoggedIn && <Nav.Link
             as={NavLink}
             to="/store"
             style={{
@@ -59,7 +61,8 @@ const NavbarComponent = (props) => {
             }}
           >
             Store
-          </Nav.Link>
+          </Nav.Link>}
+          
           <Nav.Link
             as={NavLink}
             to="/about"
@@ -88,6 +91,21 @@ const NavbarComponent = (props) => {
           >
             Contact Us
           </Nav.Link>
+          {!authctx.isLoggedIn && <Nav.Link
+            as={NavLink}
+            to="/login"
+            style={{
+              marginRight: "3rem",
+              fontSize: "1.5rem",
+              color: "#a2a6a3", // Default color for links
+            }}
+            activeStyle={{
+              color: "white", // Change this to your preferred highlighted color
+            }}
+          >
+            Login
+          </Nav.Link>}
+          
         </Nav>
         <Button
           variant="outline-light"
