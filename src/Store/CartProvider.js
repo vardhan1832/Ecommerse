@@ -1,7 +1,7 @@
-import React , {useState} from "react";
+import React , { useState} from "react";
 import CartContext from "./cartcontext";
 
-const CartProvider = (props) =>{
+const CartProvider = (props) =>{  
     const addItemHandler = (item) =>{
         const existingitemindex = cartcontext.items.findIndex((obj) => {
             return obj.id === item.id;
@@ -18,7 +18,8 @@ const CartProvider = (props) =>{
           
           cartcontext.totalPrice += Number(item.price)*Number(item.Amount);
           console.log(cartcontext);
-          setCart({ ...cartcontext });
+          localStorage.setItem('cart',JSON.stringify(cartcontext))
+          setCart({ ...cartcontext });          
     }
     const removeItemHandler = (id) =>{
         const existingitemindex = cartcontext.items.findIndex((obj) => {
@@ -38,7 +39,7 @@ const CartProvider = (props) =>{
             };
             cartcontext.items[existingitemindex] = afterremovingitem;
         }
-        
+        localStorage.setItem('cart',JSON.stringify(cartcontext))
         setCart({ ...cartcontext})
     }
     const removeProductHandler = (id) =>{
@@ -50,6 +51,7 @@ const CartProvider = (props) =>{
             return item.id!==cartcontext.items[existingitemindex].id;
         })
         cartcontext.items = [...updateditems]
+        localStorage.setItem('cart',JSON.stringify(cartcontext))
         setCart({...cartcontext})
     }
     const cartcontext = {
@@ -59,7 +61,7 @@ const CartProvider = (props) =>{
         removeFromCart:removeItemHandler,
         removeProduct:removeProductHandler
     }
-    const [cart,setCart] = useState(cartcontext)
+    const [cart, setCart] = useState(cartcontext);
     return (
         <CartContext.Provider value={cart}>{props.children}</CartContext.Provider>
     )

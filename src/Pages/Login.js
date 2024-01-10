@@ -26,7 +26,7 @@ const Login = () => {
             })
             const data = await res.json()
             if(data.idToken){
-                authctx.login(data.idToken)
+                authctx.login(data.idToken,data.email)
                 history.replace('/store')
             }else{
                 throw new Error(data.error.message)

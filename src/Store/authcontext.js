@@ -11,13 +11,15 @@ const AuthProvider = (props)=>{
     const initialtoken = localStorage.getItem('token')
     const [token,settoken] = useState(initialtoken)
     const userisloggedin = !!token
-    const loginHandler = (token) =>{
+    const loginHandler = (token,email) =>{
         settoken(token)
         localStorage.setItem('token',token)
+        localStorage.setItem('email',email)
     }
     const logoutHandler = ()=>{
         settoken(null)
         localStorage.removeItem('token')
+        localStorage.removeItem('email')
     }
     const contextvalue = {
         token:token,
